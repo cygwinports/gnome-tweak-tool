@@ -1,0 +1,12 @@
+inherit gnome2 python
+
+
+DIFF_EXCLUDES="defs.py"
+# requires gnome-shell to be installed
+DISTCLEANFILES="gtweak/tweaks/tweak_shell*"
+
+src_install() {
+	cd ${B}
+	cyginstall
+	python_optimize
+}
