@@ -2,8 +2,11 @@ inherit gnome2 python
 
 
 DIFF_EXCLUDES="defs.py"
-# requires gnome-shell to be installed
-DISTCLEANFILES="gtweak/tweaks/tweak_shell*"
+
+src_compile() {
+	cd ${B}
+	gnome2_compile
+}
 
 src_install() {
 	cd ${B}
