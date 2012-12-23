@@ -1,4 +1,0 @@
-category: Gnome
-requires: GConf2 gsettings-desktop-schemas python python-gi girepository-GConf2.0 girepository-GLib2.0 girepository-Gtk3.0
-sdesc: "GNOME desktop configuration tweaker"
-ldesc: "GNOME desktop configuration tweaker"

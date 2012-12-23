@@ -1,0 +1,22 @@
+inherit gnome2 python
+
+NAME="gnome-tweak-tool"
+VERSION=3.6.1
+RELEASE=1
+CATEGORY="GNOME"
+SUMMARY="GNOME desktop configuration tweaker"
+DESCRIPTION="GNOME desktop configuration tweaker"
+REQUIRES="GConf2 gsettings-desktop-schemas girepository-GConf2.0 girepository-Gtk3.0"
+
+DIFF_EXCLUDES="defs.py"
+
+src_compile() {
+	cd ${B}
+	gnome2_compile
+}
+
+src_install() {
+	cd ${B}
+	cyginstall
+	python_optimize
+}
