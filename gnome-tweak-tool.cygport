@@ -1,16 +1,27 @@
 inherit gnome2 python
 
 NAME="gnome-tweak-tool"
-VERSION=3.8.1
+VERSION=3.10.1
 RELEASE=1
 CATEGORY="GNOME"
 SUMMARY="GNOME desktop configuration tweaker"
 DESCRIPTION="GNOME desktop configuration tweaker"
-REQUIRES="GConf2 gsettings-desktop-schemas girepository-GConf2.0 girepository-Gtk3.0"
 
-DIFF_EXCLUDES="defs.py"
+PATCH_URI="
+	3.10.1-install-defs-py.patch
+	3.10.1-metacity.patch
+"
+
+REQUIRES="gsettings-desktop-schemas girepository-Gtk3.0 girepository-GnomeDesktop3.0 girepository-Notify0.7 girepository-SoupGNOME2.4"
+
+ARCH=noarch
+
+# do not work properly without gnome-shell schemas
+DISTCLEANFILES="gtweak/defs.py gtweak/tweaks/tweak_group_shell*"
 
 src_compile() {
+	cd ${S}
+	gnome2_autoreconf
 	cd ${B}
 	gnome2_compile
 }
