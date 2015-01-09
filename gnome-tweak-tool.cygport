@@ -1,14 +1,13 @@
 inherit gnome2 python
 
 NAME="gnome-tweak-tool"
-VERSION=3.10.1
+VERSION=3.14.2
 RELEASE=1
 CATEGORY="GNOME"
 SUMMARY="GNOME desktop configuration tweaker"
 DESCRIPTION="GNOME desktop configuration tweaker"
 
 PATCH_URI="
-	3.10.1-install-defs-py.patch
 	3.10.1-metacity.patch
 "
 
