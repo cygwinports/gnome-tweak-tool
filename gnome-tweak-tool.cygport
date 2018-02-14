@@ -1,31 +1,12 @@
-inherit gnome2 python
+inherit gnome.org python3 meson
 
 NAME="gnome-tweak-tool"
-VERSION=3.24.1
+VERSION=3.26.4
 RELEASE=1
 CATEGORY="GNOME"
 SUMMARY="GNOME desktop configuration tweaker"
 DESCRIPTION="GNOME desktop configuration tweaker"
 
-PATCH_URI="
-	3.10.1-metacity.patch
-"
-
 REQUIRES="gsettings-desktop-schemas girepository-Gtk3.0 girepository-GnomeDesktop3.0 girepository-Notify0.7 girepository-SoupGNOME2.4"
 
 ARCH=noarch
-
-DISTCLEANFILES="gtweak/defs.py"
-
-src_compile() {
-	cd ${S}
-	gnome2_autoreconf
-	cd ${B}
-	gnome2_compile
-}
-
-src_install() {
-	cd ${B}
-	cyginstall
-	python_optimize
-}
